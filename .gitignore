@@ -29,4 +29,4 @@ dist/
 loadtest/reports/
 
 # Miscellaneous
-Hallazgos.md
+.hallazgos/

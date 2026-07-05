@@ -479,3 +479,10 @@ Crear los manifests necesarios para desplegar la aplicación en un clúster:
 ## Más Información
 
 Ver [ABOUT.md](./ABOUT.md) para instrucciones adicionales sobre cada componente.
+
+Documentación de proceso y gobernanza:
+
+- [Guía de proceso](./docs/process/README.md)
+- [Plantilla de Pull Request](./.github/pull_request_template.md)
+- [Plantilla de bug report](./.github/ISSUE_TEMPLATE/bug_report.md)
+- [Plantilla de feature request](./.github/ISSUE_TEMPLATE/feature_request.md)

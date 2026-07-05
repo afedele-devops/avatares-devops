@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+# Hook ligero: evita commits con cambios de merge conflict sin resolver.
+
+if git diff --cached --name-only | xargs -r grep -n "^<<<<<<<\|^=======\|^>>>>>>>" >/dev/null 2>&1; then
+	echo "Error: hay marcadores de conflicto sin resolver en el commit." >&2
+	exit 1
+fi
+
+exit 0
