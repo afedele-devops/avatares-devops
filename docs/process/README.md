@@ -42,3 +42,19 @@ Estrategia de ramas, flujo de trabajo y reglas de gobernanza del repositorio.
 - [Secret](../../k8s/secret.yaml)
 - [Kustomization](../../k8s/kustomization.yaml)
 - [Evidencia kubectl (dry-run, pods, svc, ingress)](../../docs/evidencias/k8s/README.md)
+
+# 4. Infraestructura como código
+- Crear estructura infra para Terraform (modules + envs staging/production).
+- Definir backend remoto de estado con locking. 
+- Declarar providers versionados.
+- Crear outputs útiles (endpoint clúster, datos no sensibles).
+
+### Referencia principal
+- [Estructura infra para Terraform](../../infra/)
+- [Backend remoto de estado con locking (staging)](../../infra/envs/staging/backend.tf) 
+- [Backend remoto de estado con locking (production)](../../infra/envs/production/backend.tf)
+- [Providers versionados (EKS)](../../infra/modules/eks/versions.tf)
+- [Providers versionados (staging)](../../infra/envs/staging/versions.tf)
+- [Outputs útiles (staging)](../../infra/envs/staging/outputs.tf)
+- [Outputs útiles (production)](../../infra/envs/production/outputs.tf)
+

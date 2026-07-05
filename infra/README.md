@@ -13,7 +13,8 @@ Despliegue Kubernetes:
 
 ## Backend remoto con locking
 
-Cada entorno define backend S3 + DynamoDB en `backend.tf`.
+Cada entorno define un bloque minimo `backend "s3" {}` en `backend.tf`.
+Los valores reales del backend remoto se inyectan en `terraform init` con `-backend-config=...`.
 
 Flujo recomendado:
 
@@ -41,6 +42,8 @@ terraform init -reconfigure \
 terraform plan
 terraform apply
 ```
+
+El mismo patron aplica a `production`, cambiando solo la key del state.
 
 Repetir en `infra/envs/production` con los valores del entorno.
 

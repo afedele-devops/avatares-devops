@@ -40,3 +40,6 @@ terraform init -reconfigure \
 ```
 
 Nota: este stack usa backend local por diseno para resolver el bootstrap.
+
+Los archivos `infra/envs/*/backend.tf` solo contienen `backend "s3" {}`.
+No se usan `tfvars` para configurar el backend remoto; Terraform requiere pasar esos valores durante `terraform init`.
