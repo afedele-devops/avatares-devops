@@ -30,3 +30,16 @@ loadtest/reports/
 
 # Miscellaneous
 .hallazgos/
+
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local tfvars (keep only *.example in repo)
+*.tfvars

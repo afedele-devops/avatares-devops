@@ -1,0 +1,8 @@
+configmap/avatares-config created
+secret/avatares-secrets created
+service/api created
+service/web created
+persistentvolumeclaim/api-data-pvc created
+deployment.apps/api created
+deployment.apps/web created
+ingress.networking.k8s.io/avatares-ingress created

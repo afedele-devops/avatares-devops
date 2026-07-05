@@ -1,0 +1,15 @@
+aws_region         = "us-east-1"
+cluster_name       = "avatares-staging"
+cluster_version    = "1.30"
+vpc_id             = "vpc-xxxxxxxx"
+private_subnet_ids = ["subnet-aaaaaaa", "subnet-bbbbbbb", "subnet-ccccccc"]
+
+node_instance_types = ["t3.medium"]
+node_desired_size   = 2
+node_min_size       = 1
+node_max_size       = 4
+
+# Optional extra tags
+tags = {
+  owner = "devops-team"
+}
