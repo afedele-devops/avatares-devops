@@ -16,6 +16,8 @@ spec:
         prometheus.io/path: /metrics
         prometheus.io/port: "5000"
     spec:
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
         - name: api
           image: ghcr.io/afedele-devops/avatares-api:latest

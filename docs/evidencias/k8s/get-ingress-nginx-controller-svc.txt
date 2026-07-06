@@ -1,0 +1,2 @@
+NAME                       TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)                      AGE   SELECTOR
+ingress-nginx-controller   LoadBalancer   10.100.55.145   a641750955b754658bceb16fa45ecb58-1665917728.us-east-1.elb.amazonaws.com   80:31949/TCP,443:32245/TCP   72s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=ingress-nginx,app.kubernetes.io/name=ingress-nginx

@@ -1,6 +1,1 @@
-E0704 21:28:26.324422 4184502 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://127.0.0.1:33025/api?timeout=32s\": dial tcp 127.0.0.1:33025: connect: connection refused"
-E0704 21:28:26.324992 4184502 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://127.0.0.1:33025/api?timeout=32s\": dial tcp 127.0.0.1:33025: connect: connection refused"
-E0704 21:28:26.326492 4184502 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://127.0.0.1:33025/api?timeout=32s\": dial tcp 127.0.0.1:33025: connect: connection refused"
-E0704 21:28:26.326775 4184502 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://127.0.0.1:33025/api?timeout=32s\": dial tcp 127.0.0.1:33025: connect: connection refused"
-E0704 21:28:26.328374 4184502 memcache.go:265] "Unhandled Error" err="couldn't get current server API group list: Get \"https://127.0.0.1:33025/api?timeout=32s\": dial tcp 127.0.0.1:33025: connect: connection refused"
-The connection to the server 127.0.0.1:33025 was refused - did you specify the right host or port?
+No resources found in avatares namespace.

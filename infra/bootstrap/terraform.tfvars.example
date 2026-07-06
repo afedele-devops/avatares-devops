@@ -1,9 +1,0 @@
-aws_region        = "us-east-1"
-state_bucket_name = "avatares-tf-state"
-locks_table_name  = "avatares-tf-locks"
-
-tags = {
-  project     = "avatares-devops"
-  environment = "shared"
-  owner       = "devops-team"
-}

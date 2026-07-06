@@ -1,0 +1,58 @@
+Name:             api-584c965469-tb9v6
+Namespace:        avatares-staging
+Priority:         0
+Service Account:  default
+Node:             <none>
+Labels:           app=api
+                  pod-template-hash=584c965469
+Annotations:      prometheus.io/path: /metrics
+                  prometheus.io/port: 5000
+                  prometheus.io/scrape: true
+Status:           Pending
+IP:               
+IPs:              <none>
+Controlled By:    ReplicaSet/api-584c965469
+Containers:
+  api:
+    Image:      ghcr.io/afedele-devops/avatares-api:latest
+    Port:       5000/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     500m
+      memory:  512Mi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Liveness:   http-get http://:5000/health delay=10s timeout=1s period=15s #success=1 #failure=3
+    Readiness:  http-get http://:5000/ready delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment Variables from:
+      avatares-config   ConfigMap  Optional: false
+      avatares-secrets  Secret     Optional: false
+    Environment:        <none>
+    Mounts:
+      /data from api-data (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-52fcv (ro)
+Conditions:
+  Type           Status
+  PodScheduled   False 
+Volumes:
+  api-data:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  api-data-pvc
+    ReadOnly:   false
+  kube-api-access-52fcv:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                  From               Message
+  ----     ------            ----                 ----               -------
+  Warning  FailedScheduling  26m (x124 over 46m)  default-scheduler  no nodes available to schedule pods
+  Warning  FailedScheduling  4m59s (x6 over 25m)  default-scheduler  0/2 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
+  Warning  FailedScheduling  39s                  default-scheduler  0/4 nodes are available: 1 node(s) had untolerated taint {node.kubernetes.io/not-ready: }, 3 Too many pods. preemption: 0/4 nodes are available: 1 Preemption is not helpful for scheduling, 3 No preemption victims found for incoming pod.

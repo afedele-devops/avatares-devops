@@ -1,0 +1,65 @@
+Name:             web-6674b6fd89-t29dr
+Namespace:        avatares-staging
+Priority:         0
+Service Account:  default
+Node:             ip-172-31-25-234.ec2.internal/172.31.25.234
+Start Time:       Mon, 06 Jul 2026 00:55:34 -0300
+Labels:           app=web
+                  pod-template-hash=6674b6fd89
+Annotations:      <none>
+Status:           Pending
+IP:               172.31.22.159
+IPs:
+  IP:           172.31.22.159
+Controlled By:  ReplicaSet/web-6674b6fd89
+Containers:
+  web:
+    Container ID:   
+    Image:          ghcr.io/afedele-devops/avatares-web:latest
+    Image ID:       
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ErrImagePull
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     250m
+      memory:  256Mi
+    Requests:
+      cpu:        50m
+      memory:     64Mi
+    Liveness:     http-get http://:80/health delay=10s timeout=1s period=15s #success=1 #failure=3
+    Readiness:    http-get http://:80/ready delay=5s timeout=1s period=10s #success=1 #failure=3
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zkg85 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-zkg85:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason            Age                  From               Message
+  ----     ------            ----                 ----               -------
+  Warning  FailedScheduling  26m (x124 over 46m)  default-scheduler  no nodes available to schedule pods
+  Warning  FailedScheduling  4m31s (x7 over 25m)  default-scheduler  0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.
+  Normal   Scheduled         41s                  default-scheduler  Successfully assigned avatares-staging/web-6674b6fd89-t29dr to ip-172-31-25-234.ec2.internal
+  Warning  Failed            25s (x2 over 41s)    kubelet            spec.containers{web}: Error: ErrImagePull
+  Normal   BackOff           12s (x2 over 40s)    kubelet            spec.containers{web}: Back-off pulling image "ghcr.io/afedele-devops/avatares-web:latest"
+  Warning  Failed            12s (x2 over 40s)    kubelet            spec.containers{web}: Error: ImagePullBackOff
+  Normal   Pulling           0s (x3 over 41s)     kubelet            spec.containers{web}: Pulling image "ghcr.io/afedele-devops/avatares-web:latest"
+  Warning  Failed            0s (x3 over 41s)     kubelet            spec.containers{web}: Failed to pull image "ghcr.io/afedele-devops/avatares-web:latest": failed to pull and unpack image "ghcr.io/afedele-devops/avatares-web:latest": failed to resolve reference "ghcr.io/afedele-devops/avatares-web:latest": failed to authorize: failed to fetch anonymous token: unexpected status from GET request to https://ghcr.io/token?scope=repository%3Aafedele-devops%2Favatares-web%3Apull&service=ghcr.io: 403 Forbidden

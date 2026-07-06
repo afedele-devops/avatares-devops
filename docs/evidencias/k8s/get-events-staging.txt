@@ -1,0 +1,28 @@
+LAST SEEN   TYPE      REASON                   OBJECT                               MESSAGE
+33m         Normal    SuccessfulCreate         replicaset/grafana-7577656ddb        Created pod: grafana-7577656ddb-9jh2n
+33m         Normal    SuccessfulCreate         replicaset/api-584c965469            Created pod: api-584c965469-tb9v6
+33m         Normal    ScalingReplicaSet        deployment/api                       Scaled up replica set api-584c965469 to 1
+33m         Normal    ScalingReplicaSet        deployment/grafana                   Scaled up replica set grafana-7577656ddb to 1
+33m         Normal    ScalingReplicaSet        deployment/prometheus                Scaled up replica set prometheus-6fbf58df9c to 1
+33m         Normal    SuccessfulCreate         replicaset/prometheus-6fbf58df9c     Created pod: prometheus-6fbf58df9c-rk5bq
+33m         Normal    ScalingReplicaSet        deployment/web                       Scaled up replica set web-6674b6fd89 to 2
+33m         Normal    SuccessfulCreate         replicaset/web-6674b6fd89            Created pod: web-6674b6fd89-tc5rx
+33m         Normal    SuccessfulCreate         replicaset/web-6674b6fd89            Created pod: web-6674b6fd89-t29dr
+13m         Warning   FailedScheduling         pod/grafana-7577656ddb-9jh2n         no nodes available to schedule pods
+13m         Warning   FailedScheduling         pod/prometheus-6fbf58df9c-rk5bq      no nodes available to schedule pods
+13m         Warning   FailedScheduling         pod/api-584c965469-tb9v6             no nodes available to schedule pods
+13m         Warning   FailedScheduling         pod/web-6674b6fd89-tc5rx             no nodes available to schedule pods
+13m         Warning   FailedScheduling         pod/web-6674b6fd89-t29dr             no nodes available to schedule pods
+12m         Normal    Sync                     ingress/avatares-ingress             Scheduled for sync
+11m         Warning   FailedCreatePodSandBox   pod/grafana-7577656ddb-9jh2n         Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "2bb653667521225ee81ce674a280c624afc1b8e15adac644b14e185864e9181f": plugin type="aws-cni" name="aws-cni" failed (add): add cmd: failed to assign an IP address to container
+11m         Warning   FailedCreatePodSandBox   pod/grafana-7577656ddb-9jh2n         Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "5f438a24f966bfea18b149230fe8566f239edfc629bcc929350bfb89c002ead6": plugin type="aws-cni" name="aws-cni" failed (add): add cmd: failed to assign an IP address to container
+11m         Warning   FailedCreatePodSandBox   pod/grafana-7577656ddb-9jh2n         Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "3a95432d5830b1ffae7f36748e95a64062f01b9ceb9a38725b84a2f43601ae93": plugin type="aws-cni" name="aws-cni" failed (add): add cmd: failed to assign an IP address to container
+10m         Normal    Pulling                  pod/grafana-7577656ddb-9jh2n         Pulling image "grafana/grafana:11.6.0"
+10m         Normal    Started                  pod/grafana-7577656ddb-9jh2n         Started container grafana
+10m         Normal    Created                  pod/grafana-7577656ddb-9jh2n         Created container: grafana
+10m         Normal    Pulled                   pod/grafana-7577656ddb-9jh2n         Successfully pulled image "grafana/grafana:11.6.0" in 8.309s (8.309s including waiting). Image size: 181093645 bytes.
+3m15s       Normal    FailedBinding            persistentvolumeclaim/api-data-pvc   no persistent volumes available for this claim and no storage class is set
+2m1s        Warning   FailedScheduling         pod/api-584c965469-tb9v6             0/2 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
+91s         Warning   FailedScheduling         pod/prometheus-6fbf58df9c-rk5bq      0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.
+91s         Warning   FailedScheduling         pod/web-6674b6fd89-t29dr             0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.
+91s         Warning   FailedScheduling         pod/web-6674b6fd89-tc5rx             0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.

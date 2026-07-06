@@ -1,0 +1,19 @@
+Name:          api-data-pvc
+Namespace:     avatares-staging
+StorageClass:  gp2
+Status:        Pending
+Volume:        
+Labels:        <none>
+Annotations:   volume.beta.kubernetes.io/storage-provisioner: ebs.csi.aws.com
+               volume.kubernetes.io/selected-node: ip-172-31-21-58.ec2.internal
+               volume.kubernetes.io/storage-provisioner: ebs.csi.aws.com
+Finalizers:    [kubernetes.io/pvc-protection]
+Capacity:      
+Access Modes:  
+VolumeMode:    Filesystem
+Used By:       api-584c965469-tb9v6
+Events:
+  Type    Reason               Age                    From                         Message
+  ----    ------               ----                   ----                         -------
+  Normal  FailedBinding        6m11s (x162 over 46m)  persistentvolume-controller  no persistent volumes available for this claim and no storage class is set
+  Normal  WaitForPodScheduled  71s (x13 over 4m6s)    persistentvolume-controller  waiting for pod api-584c965469-tb9v6 to be scheduled

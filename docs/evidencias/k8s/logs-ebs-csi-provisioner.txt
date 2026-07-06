@@ -1,0 +1,17 @@
+I0706 04:10:26.523501       1 feature_gate.go:477] "Warning: setting GA feature gate. It will be removed in a future release." featureGate="Topology" value=true
+I0706 04:10:26.523631       1 feature_gate.go:477] "Warning: setting GA feature gate. It will be removed in a future release." featureGate="VolumeAttributesClass" value=false
+I0706 04:10:26.523641       1 feature_gate.go:477] "Updated" featureGates={"Topology":true,"VolumeAttributesClass":false}
+I0706 04:10:26.523683       1 csi-provisioner.go:156] "Version" version="v6.3.0-eksbuild.1"
+I0706 04:10:26.523697       1 csi-provisioner.go:179] Building kube configs for running in cluster...
+I0706 04:10:26.524048       1 envvar.go:195] "Feature gate default state" feature="InOrderInformers" enabled=true
+I0706 04:10:26.524077       1 envvar.go:195] "Feature gate default state" feature="AtomicFIFO" enabled=true
+I0706 04:10:26.524084       1 envvar.go:195] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+I0706 04:10:26.524089       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+I0706 04:10:26.524095       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCARotation" enabled=true
+I0706 04:10:26.524101       1 envvar.go:195] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+I0706 04:10:26.524107       1 envvar.go:195] "Feature gate default state" feature="WatchListClient" enabled=true
+I0706 04:10:26.524114       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowTLSCacheGC" enabled=true
+I0706 04:10:26.524120       1 envvar.go:195] "Feature gate default state" feature="UnlockWhileProcessingFIFO" enabled=true
+I0706 04:10:26.524126       1 envvar.go:195] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+I0706 04:10:26.527042       1 common.go:143] "Probing CSI driver for readiness"
+E0706 04:10:26.532769       1 csi-provisioner.go:243] CSI driver probe failed: rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: 1703ec53-8db0-4d8c-87dd-48aedd6a09fb, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action

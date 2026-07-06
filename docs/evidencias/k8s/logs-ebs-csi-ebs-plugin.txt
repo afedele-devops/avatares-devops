@@ -1,0 +1,12 @@
+I0706 04:12:38.797641       1 main.go:168] "Region provided via AWS_REGION environment variable" region="us-east-1"
+I0706 04:12:38.798425       1 envvar.go:195] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+I0706 04:12:38.798564       1 envvar.go:195] "Feature gate default state" feature="AtomicFIFO" enabled=true
+I0706 04:12:38.798618       1 envvar.go:195] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+I0706 04:12:38.798675       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+I0706 04:12:38.798909       1 envvar.go:195] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+I0706 04:12:38.798950       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowTLSCacheGC" enabled=true
+I0706 04:12:38.798990       1 envvar.go:195] "Feature gate default state" feature="WatchListClient" enabled=true
+I0706 04:12:38.799047       1 envvar.go:195] "Feature gate default state" feature="UnlockWhileProcessingFIFO" enabled=true
+I0706 04:12:38.799063       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCARotation" enabled=true
+I0706 04:12:38.799073       1 envvar.go:195] "Feature gate default state" feature="InOrderInformers" enabled=true
+I0706 04:12:38.799539       1 driver.go:92] "Driver Information" Driver="ebs.csi.aws.com" Version="v1.62.0"
