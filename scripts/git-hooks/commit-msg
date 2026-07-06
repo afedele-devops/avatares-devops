@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+commit_msg_file="$1"
+commit_msg="$(head -n 1 "$commit_msg_file")"
+
+# Formato: tipo(scope): resumen
+# scope es opcional, pero recomendado.
+regex='^(feat|fix|docs|refactor|test|chore|ci|build|perf|revert)(\([a-z0-9._-]+\))?: .{8,}$'
+
+if ! printf '%s' "$commit_msg" | grep -Eq "$regex"; then
+  echo "Error: mensaje de commit no cumple el formato requerido." >&2
+  echo "Usa: tipo(scope): resumen descriptivo" >&2
+  echo "Ejemplo: feat(ci): agrega workflow base de pruebas" >&2
+  exit 1
+fi
+
+exit 0

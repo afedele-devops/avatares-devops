@@ -1,0 +1,6 @@
+NAME                          READY   STATUS             RESTARTS   AGE   IP              NODE                            NOMINATED NODE   READINESS GATES
+api-584c965469-tb9v6          0/1     Pending            0          45m   <none>          <none>                          <none>           <none>
+grafana-7577656ddb-9jh2n      1/1     Running            0          45m   172.31.84.61    ip-172-31-86-195.ec2.internal   <none>           <none>
+prometheus-6fbf58df9c-rk5bq   1/1     Running            0          45m   172.31.26.174   ip-172-31-25-234.ec2.internal   <none>           <none>
+web-6674b6fd89-t29dr          0/1     ImagePullBackOff   0          45m   172.31.22.159   ip-172-31-25-234.ec2.internal   <none>           <none>
+web-6674b6fd89-tc5rx          0/1     ErrImagePull       0          45m   172.31.24.188   ip-172-31-21-58.ec2.internal    <none>           <none>

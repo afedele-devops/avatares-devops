@@ -1,0 +1,260 @@
+Name:                 ebs-csi-controller-66cc6dd6d7-h5xw9
+Namespace:            kube-system
+Priority:             2000000000
+Priority Class Name:  system-cluster-critical
+Service Account:      ebs-csi-controller-sa
+Node:                 ip-172-31-25-234.ec2.internal/172.31.25.234
+Start Time:           Mon, 06 Jul 2026 01:06:58 -0300
+Labels:               app=ebs-csi-controller
+                      app.kubernetes.io/component=csi-driver
+                      app.kubernetes.io/managed-by=EKS
+                      app.kubernetes.io/name=aws-ebs-csi-driver
+                      app.kubernetes.io/version=1.62.0
+                      pod-template-hash=66cc6dd6d7
+Annotations:          <none>
+Status:               Running
+IP:                   172.31.22.159
+IPs:
+  IP:           172.31.22.159
+Controlled By:  ReplicaSet/ebs-csi-controller-66cc6dd6d7
+Containers:
+  ebs-plugin:
+    Container ID:    containerd://f921b423ae94a18a7d440b9ffcf17afe6cfd0ff6a7e3eb39cb76e69b4cef5cfd
+    Image:           602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver:v1.62.0
+    Image ID:        602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/aws-ebs-csi-driver@sha256:90e7015c43235aba69108f15d31a969bb4bfdc8948185c109c48b1baeb0f6d2d
+    Port:            9808/TCP (healthz)
+    Host Port:       0/TCP (healthz)
+    SeccompProfile:  RuntimeDefault
+    Args:
+      controller
+      --endpoint=$(CSI_ENDPOINT)
+      --k8s-tag-cluster-id=avatares-staging
+      --batching=true
+      --logging-format=text
+      --user-agent-extra=eks
+      --v=2
+    State:       Running
+      Started:   Mon, 06 Jul 2026 01:12:38 -0300
+    Last State:  Terminated
+      Reason:    Error
+      Message:   action"
+E0706 04:12:28.565562       1 driver.go:135] "GRPC error" err="rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: 6dc68040-ff9f-467b-a830-608fbd0ff478, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action"
+E0706 04:12:38.566255       1 driver.go:135] "GRPC error" err="rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: 93d6e7fc-ba80-4b5c-9e3b-6d33da8bf4be, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action"
+E0706 04:12:38.567710       1 driver.go:135] "GRPC error" err="rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: d1837e09-7d79-495f-98f2-1e133472e64c, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action"
+
+      Exit Code:    2
+      Started:      Mon, 06 Jul 2026 01:10:58 -0300
+      Finished:     Mon, 06 Jul 2026 01:12:38 -0300
+    Ready:          False
+    Restart Count:  3
+    Limits:
+      memory:  256Mi
+    Requests:
+      cpu:      10m
+      memory:   40Mi
+    Liveness:   http-get http://:healthz/healthz delay=10s timeout=60s period=10s #success=1 #failure=10
+    Readiness:  http-get http://:healthz/healthz delay=10s timeout=60s period=10s #success=1 #failure=5
+    Environment:
+      CSI_ENDPOINT:            unix:///var/lib/csi/sockets/pluginproxy/csi.sock
+      CSI_NODE_NAME:            (v1:spec.nodeName)
+      AWS_ACCESS_KEY_ID:       <set to the key 'key_id' in secret 'aws-secret'>                Optional: true
+      AWS_SECRET_ACCESS_KEY:   <set to the key 'access_key' in secret 'aws-secret'>            Optional: true
+      AWS_EC2_ENDPOINT:        <set to the key 'endpoint' of config map 'aws-meta'>            Optional: true
+      AWS_SAGEMAKER_ENDPOINT:  <set to the key 'sagemaker_endpoint' of config map 'aws-meta'>  Optional: true
+      AWS_REGION:              us-east-1
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pxvqc (ro)
+  csi-provisioner:
+    Container ID:    containerd://e8cbdab30b4a38cf66b8dca01f88022a67f0de1bcefdd7adc03c60881c66a09a
+    Image:           602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-provisioner:v6.3.0-eksbuild.1
+    Image ID:        602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-provisioner@sha256:46326b6401444ee9960c010437585472a6fdf0d3c91a891fe94b02e064fe8cd4
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Args:
+      --timeout=60s
+      --csi-address=$(ADDRESS)
+      --v=2
+      --feature-gates=Topology=true
+      --extra-create-metadata
+      --leader-election=true
+      --default-fstype=ext4
+      --kube-api-qps=20
+      --kube-api-burst=100
+      --worker-threads=100
+      --retry-interval-max=30m
+      --feature-gates=VolumeAttributesClass=false
+    State:       Waiting
+      Reason:    CrashLoopBackOff
+    Last State:  Terminated
+      Reason:    Error
+      Message:    04:10:26.523697       1 csi-provisioner.go:179] Building kube configs for running in cluster...
+I0706 04:10:26.524048       1 envvar.go:195] "Feature gate default state" feature="InOrderInformers" enabled=true
+I0706 04:10:26.524077       1 envvar.go:195] "Feature gate default state" feature="AtomicFIFO" enabled=true
+I0706 04:10:26.524084       1 envvar.go:195] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+I0706 04:10:26.524089       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+I0706 04:10:26.524095       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCARotation" enabled=true
+I0706 04:10:26.524101       1 envvar.go:195] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+I0706 04:10:26.524107       1 envvar.go:195] "Feature gate default state" feature="WatchListClient" enabled=true
+I0706 04:10:26.524114       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowTLSCacheGC" enabled=true
+I0706 04:10:26.524120       1 envvar.go:195] "Feature gate default state" feature="UnlockWhileProcessingFIFO" enabled=true
+I0706 04:10:26.524126       1 envvar.go:195] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+I0706 04:10:26.527042       1 common.go:143] "Probing CSI driver for readiness"
+E0706 04:10:26.532769       1 csi-provisioner.go:243] CSI driver probe failed: rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: 1703ec53-8db0-4d8c-87dd-48aedd6a09fb, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action
+
+      Exit Code:    1
+      Started:      Mon, 06 Jul 2026 01:10:26 -0300
+      Finished:     Mon, 06 Jul 2026 01:10:26 -0300
+    Ready:          False
+    Restart Count:  5
+    Limits:
+      memory:  256Mi
+    Requests:
+      cpu:     10m
+      memory:  40Mi
+    Environment:
+      ADDRESS:              /var/lib/csi/sockets/pluginproxy/csi.sock
+      ENABLE_VAC_FALLBACK:  true
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pxvqc (ro)
+  csi-attacher:
+    Container ID:    containerd://ad1fe8e2186dd5b33cc6a5ae1993e4d2c572893f390c435886518412c782c184
+    Image:           602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-attacher:v4.12.0-eksbuild.2
+    Image ID:        602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-attacher@sha256:992fa152643b2bb85270e5f46003f5902e89bafa06a1302bca6c0aff67cc1bed
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Args:
+      --timeout=6m
+      --csi-address=$(ADDRESS)
+      --v=2
+      --leader-election=true
+      --kube-api-qps=20
+      --kube-api-burst=100
+      --worker-threads=100
+      --retry-interval-max=5m
+    State:       Waiting
+      Reason:    CrashLoopBackOff
+    Last State:  Terminated
+      Reason:    Error
+      Message:   6.656267       1 main.go:114] "Version" version="v4.12.0-eksbuild.2"
+I0706 04:10:26.656455       1 envvar.go:195] "Feature gate default state" feature="UnlockWhileProcessingFIFO" enabled=true
+I0706 04:10:26.656476       1 envvar.go:195] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+I0706 04:10:26.656483       1 envvar.go:195] "Feature gate default state" feature="AtomicFIFO" enabled=true
+I0706 04:10:26.656490       1 envvar.go:195] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+I0706 04:10:26.656497       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+I0706 04:10:26.656503       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCARotation" enabled=true
+I0706 04:10:26.656509       1 envvar.go:195] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+I0706 04:10:26.656515       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowTLSCacheGC" enabled=true
+I0706 04:10:26.656521       1 envvar.go:195] "Feature gate default state" feature="WatchListClient" enabled=true
+I0706 04:10:26.656527       1 envvar.go:195] "Feature gate default state" feature="InOrderInformers" enabled=true
+I0706 04:10:26.659366       1 common.go:143] "Probing CSI driver for readiness"
+E0706 04:10:26.667085       1 main.go:159] "Failed to probe the CSI driver" err="CSI driver probe failed: rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: a7df5e1c-8418-4d76-aa7d-5a1b6e6dac05, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action"
+
+      Exit Code:    1
+      Started:      Mon, 06 Jul 2026 01:10:26 -0300
+      Finished:     Mon, 06 Jul 2026 01:10:26 -0300
+    Ready:          False
+    Restart Count:  5
+    Limits:
+      memory:  256Mi
+    Requests:
+      cpu:     10m
+      memory:  40Mi
+    Environment:
+      ADDRESS:  /var/lib/csi/sockets/pluginproxy/csi.sock
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pxvqc (ro)
+  csi-snapshotter:
+    Container ID:    containerd://8f22f668acc308c64b7a9d1f1660845477492d32e1374b33cce33eb958c98431
+    Image:           602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-snapshotter:v8.6.0-eksbuild.2
+    Image ID:        602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-snapshotter@sha256:17991f2a661bbc90f3a3bb9b8dd14ca5a441672afd57327b93df72bc2483fd08
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Args:
+      --csi-address=$(ADDRESS)
+      --leader-election=true
+      --v=2
+      --extra-create-metadata
+      --kube-api-qps=20
+      --kube-api-burst=100
+      --worker-threads=100
+      --retry-interval-max=30m
+    State:       Waiting
+      Reason:    CrashLoopBackOff
+    Last State:  Terminated
+      Reason:    Error
+      Message:   26.873983       1 envvar.go:195] "Feature gate default state" feature="AtomicFIFO" enabled=true
+I0706 04:10:26.874025       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+I0706 04:10:26.874034       1 envvar.go:195] "Feature gate default state" feature="InOrderInformers" enabled=true
+I0706 04:10:26.874040       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCARotation" enabled=true
+I0706 04:10:26.874044       1 envvar.go:195] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+I0706 04:10:26.874049       1 envvar.go:195] "Feature gate default state" feature="UnlockWhileProcessingFIFO" enabled=true
+I0706 04:10:26.874054       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowTLSCacheGC" enabled=true
+I0706 04:10:26.874058       1 envvar.go:195] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+I0706 04:10:26.874063       1 envvar.go:195] "Feature gate default state" feature="WatchListClient" enabled=true
+I0706 04:10:26.874068       1 envvar.go:195] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+I0706 04:10:26.880042       1 main.go:204] CSI driver name: "ebs.csi.aws.com"
+I0706 04:10:26.880083       1 common.go:143] "Probing CSI driver for readiness"
+E0706 04:10:26.885286       1 main.go:226] error waiting for CSI driver to be ready: CSI driver probe failed: rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: bc6918a2-0b7c-4faa-84d2-731c4c6e54b0, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action
+
+      Exit Code:    1
+      Started:      Mon, 06 Jul 2026 01:10:26 -0300
+      Finished:     Mon, 06 Jul 2026 01:10:26 -0300
+    Ready:          False
+    Restart Count:  5
+    Limits:
+      memory:  256Mi
+    Requests:
+      cpu:     10m
+      memory:  40Mi
+    Environment:
+      ADDRESS:  /var/lib/csi/sockets/pluginproxy/csi.sock
+    Mounts:
+      /var/lib/csi/sockets/pluginproxy/ from socket-dir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pxvqc (ro)
+  csi-resizer:
+    Container ID:    containerd://fd60132bd5992abf02d9cb9e3b1c871c812f6feee7ef91be9e1380389a34f8e3
+    Image:           602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-resizer:v2.2.0-eksbuild.2
+    Image ID:        602401143452.dkr.ecr.us-east-1.amazonaws.com/eks/csi-resizer@sha256:a61c33630ee9ec9f53adb75747104133842c84b44c322b4802d07e6cffba2e1f
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Args:
+      --timeout=60s
+      --extra-modify-metadata
+      --csi-address=$(ADDRESS)
+      --v=2
+      --handle-volume-inuse-error=false
+      --leader-election=true
+      --kube-api-qps=20
+      --kube-api-burst=100
+      --workers=100
+      --retry-interval-max=30m
+      --feature-gates=VolumeAttributesClass=false
+    State:       Waiting
+      Reason:    CrashLoopBackOff
+    Last State:  Terminated
+      Reason:    Error
+      Message:   featureGates={"VolumeAttributesClass":false}
+I0706 04:10:27.081712       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCARotation" enabled=true
+I0706 04:10:27.081738       1 envvar.go:195] "Feature gate default state" feature="InOrderInformersBatchProcess" enabled=true
+I0706 04:10:27.081746       1 envvar.go:195] "Feature gate default state" feature="WatchListClient" enabled=true
+I0706 04:10:27.081753       1 envvar.go:195] "Feature gate default state" feature="InOrderInformers" enabled=true
+I0706 04:10:27.081829       1 envvar.go:195] "Feature gate default state" feature="InformerResourceVersion" enabled=true
+I0706 04:10:27.081848       1 envvar.go:195] "Feature gate default state" feature="AtomicFIFO" enabled=true
+I0706 04:10:27.082934       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowTLSCacheGC" enabled=true
+I0706 04:10:27.082956       1 envvar.go:195] "Feature gate default state" feature="UnlockWhileProcessingFIFO" enabled=true
+I0706 04:10:27.082963       1 envvar.go:195] "Feature gate default state" feature="ClientsAllowCBOR" enabled=false
+I0706 04:10:27.082968       1 envvar.go:195] "Feature gate default state" feature="ClientsPreferCBOR" enabled=false
+I0706 04:10:27.086404       1 common.go:143] "Probing CSI driver for readiness"
+E0706 04:10:27.092242       1 main.go:169] "Failed to create CSI client" err="failed probing CSI driver: CSI driver probe failed: rpc error: code = FailedPrecondition desc = Failed health check (verify network connection and IAM credentials): dry-run EC2 API call failed: operation error EC2: DescribeAvailabilityZones, https response error StatusCode: 403, RequestID: c9193b1e-37e2-4ee4-b1f6-3242976c3970, api error UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:sts::321079155098:assumed-role/default-eks-node-group-20260705224901802300000002/i-0f27f147753d56b72 is not authorized to perform: ec2:DescribeAvailabilityZones because no identity-based policy allows the ec2:DescribeAvailabilityZones action"
+
+      Exit Code:    1
+      Started:      Mon, 06 Jul 2026 01:10:26 -0300
+      Finished:     Mon, 06 Jul 2026 01:10:27 -0300
+    Ready:          False
