@@ -12,14 +12,7 @@ Este stack crea los recursos base para backend remoto de Terraform:
 ```bash
 cd infra/bootstrap
 ```
-
-2. Preparar variables:
-
-```bash
-cp terraform.tfvars.example terraform.tfvars
-```
-
-3. Inicializar y aplicar:
+2. Inicializar y aplicar:
 
 ```bash
 terraform init

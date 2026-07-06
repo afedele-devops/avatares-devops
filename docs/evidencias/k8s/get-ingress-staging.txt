@@ -1,2 +1,2 @@
 NAME               CLASS   HOSTS   ADDRESS                                                                   PORTS   AGE
-avatares-ingress   nginx   *       a641750955b754658bceb16fa45ecb58-1665917728.us-east-1.elb.amazonaws.com   80      32m
+avatares-ingress   nginx   *       a641750955b754658bceb16fa45ecb58-1665917728.us-east-1.elb.amazonaws.com   80      10h
