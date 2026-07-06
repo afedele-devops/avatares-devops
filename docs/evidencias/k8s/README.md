@@ -95,8 +95,12 @@ Con clúster disponible, ejecutar y guardar evidencia de:
   - Dashboard de Avatares mostrando métricas reales.
 2. Resolver deploy automático en GitHub Actions:
   - `Publish images to registry` ya pasa en `develop`.
-  - `Deploy to staging` falla en runner por kubeconfig con `exec aws` sin credenciales AWS (`NoCredentials`).
-  - Agregar credenciales AWS al workflow (o usar kubeconfig sin plugin `aws` para el runner).
+  - `Deploy to staging` falla en el paso `Configurar credenciales AWS para EKS` con:
+    - `Credentials could not be loaded, please check your action inputs`
+    - `Could not load credentials from any providers`
+  - Definir en GitHub Secrets del repo:
+    - `AWS_ACCESS_KEY_ID`
+    - `AWS_SECRET_ACCESS_KEY`
 
 ## Desbloqueo GHCR con imagePullSecrets
 
