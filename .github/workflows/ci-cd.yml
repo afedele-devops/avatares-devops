@@ -17,6 +17,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_API: ghcr.io/${{ github.repository_owner }}/avatares-api
   IMAGE_WEB: ghcr.io/${{ github.repository_owner }}/avatares-web
+  AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
   STAGING_NAMESPACE: ${{ vars.STAGING_NAMESPACE || 'avatares-staging' }}
 
 jobs:
@@ -183,6 +184,13 @@ jobs:
 
       - name: Configurar kubectl
         uses: azure/setup-kubectl@v4
+
+      - name: Configurar credenciales AWS para EKS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Cargar kubeconfig
         shell: bash

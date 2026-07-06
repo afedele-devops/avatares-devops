@@ -70,11 +70,13 @@ Observación:
 - Add-on `aws-ebs-csi-driver` instalado y activo en EKS.
 - `api-data-pvc` ya está `Bound` con `storageClassName: gp2`.
 - `prometheus` y `grafana` están `Running`.
-- `api` y `web` siguen en `ImagePullBackOff`, pero ahora el error principal es `NotFound` del tag `latest` en GHCR (ya no es `403`).
-- El secret `ghcr-secret` ya existe en `avatares-staging` y los deployments ya lo referencian.
-- Imágenes referenciadas:
-  - `ghcr.io/afedele-devops/avatares-api:latest`
-  - `ghcr.io/afedele-devops/avatares-web:latest`
+- `api` y `web` están `Running` tras:
+  - Publicación de imágenes `latest` en GHCR.
+  - Configuración de `imagePullSecrets: ghcr-secret`.
+  - Ajuste de permisos de volumen en API (`securityContext` con `fsGroup/runAsUser`).
+- Validación HTTP por ingress completada con éxito:
+  - `GET /health` -> `200`
+  - `GET /api/avatar/spec` -> `200`
 
 ## Validación de observabilidad
 
@@ -88,19 +90,13 @@ Con clúster disponible, ejecutar y guardar evidencia de:
 
 ## Pendiente para cerrar el hito al 100%
 
-1. Mantener `STAGING_URL` con el hostname del ELB del Ingress (ya existe), pero actualmente responde `503`.
-2. Desbloquear imágenes privadas en GHCR:
-  - Publicar (o volver a publicar) los tags `latest` de:
-    - `ghcr.io/afedele-devops/avatares-api`
-    - `ghcr.io/afedele-devops/avatares-web`
-  - Alternativa: cambiar los deployments a un tag existente (`sha-...`) si no usarás `latest`.
-3. Verificar acceso funcional por ingress (curl o navegador):
-   - `GET $STAGING_URL/health`
-   - `GET $STAGING_URL/api/avatar/spec`
-4. Validar observabilidad:
-   - `kubectl -n avatares-staging get pods | grep -E 'prometheus|grafana|api'`
-   - Prometheus targets en `UP`.
-   - Dashboard de Avatares mostrando métricas reales.
+1. Validar en Grafana/Prometheus evidencia funcional final:
+  - Targets de Prometheus en `UP`.
+  - Dashboard de Avatares mostrando métricas reales.
+2. Resolver deploy automático en GitHub Actions:
+  - `Publish images to registry` ya pasa en `develop`.
+  - `Deploy to staging` falla en runner por kubeconfig con `exec aws` sin credenciales AWS (`NoCredentials`).
+  - Agregar credenciales AWS al workflow (o usar kubeconfig sin plugin `aws` para el runner).
 
 ## Desbloqueo GHCR con imagePullSecrets
 
@@ -108,8 +104,8 @@ Se agregó `imagePullSecrets` en los deployments `api` y `web` apuntando a `ghcr
 
 Estado actual del pull:
 
-- `403` resuelto.
-- Error vigente: `ghcr.io/...:latest: not found`.
+- Pull de imágenes GHCR funcionando.
+- Pods de `api` y `web` en `Running`.
 
 Crear el secret en staging (reemplaza valores):
 
