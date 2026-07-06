@@ -1,5 +1,5 @@
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE   SELECTOR
-api          ClusterIP   10.100.62.254    <none>        5000/TCP   32m   app=api
-grafana      ClusterIP   10.100.190.87    <none>        3000/TCP   32m   app=grafana
-prometheus   ClusterIP   10.100.125.169   <none>        9090/TCP   32m   app=prometheus
-web          ClusterIP   10.100.154.93    <none>        80/TCP     32m   app=web
+api          ClusterIP   10.100.62.254    <none>        5000/TCP   10h   app=api
+grafana      ClusterIP   10.100.190.87    <none>        3000/TCP   10h   app=grafana
+prometheus   ClusterIP   10.100.125.169   <none>        9090/TCP   10h   app=prometheus
+web          ClusterIP   10.100.154.93    <none>        80/TCP     10h   app=web

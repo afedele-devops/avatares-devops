@@ -1,2 +1,2 @@
-NAME           STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
-api-data-pvc   Pending                                      gp2            <unset>                 45m   Filesystem
+NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+api-data-pvc   Bound    pvc-68e4b0f7-d4a0-42c7-bb63-bdb3f7349005   2Gi        RWO            gp2            <unset>                 10h   Filesystem
