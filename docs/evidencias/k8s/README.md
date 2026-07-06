@@ -91,16 +91,20 @@ Con clúster disponible, ejecutar y guardar evidencia de:
 ## Pendiente para cerrar el hito al 100%
 
 1. Validar en Grafana/Prometheus evidencia funcional final:
-  - Targets de Prometheus en `UP`.
-  - Dashboard de Avatares mostrando métricas reales.
-2. Resolver deploy automático en GitHub Actions:
-  - `Publish images to registry` ya pasa en `develop`.
-  - `Deploy to staging` falla en el paso `Configurar credenciales AWS para EKS` con:
-    - `Credentials could not be loaded, please check your action inputs`
-    - `Could not load credentials from any providers`
-  - Definir en GitHub Secrets del repo:
-    - `AWS_ACCESS_KEY_ID`
-    - `AWS_SECRET_ACCESS_KEY`
+   - Targets de Prometheus en `UP`.
+   - Dashboard de Avatares mostrando métricas reales.
+
+## Estado CI/CD (actualizado)
+
+- Run verificado: `28770436928`.
+- Resultado final del rerun: `success`.
+- Jobs relevantes en `develop`:
+  - `Publish images to registry`: `success`.
+  - `Deploy to staging`: `success`.
+  - `Smoke test post deploy`: `success`.
+- El bloqueo de credenciales AWS en GitHub Actions quedó resuelto tras cargar:
+  - `AWS_ACCESS_KEY_ID`
+  - `AWS_SECRET_ACCESS_KEY`
 
 ## Desbloqueo GHCR con imagePullSecrets
 
