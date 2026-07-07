@@ -26,13 +26,11 @@ Flujo recomendado:
 
 ```bash
 cd infra/bootstrap
-cp terraform.tfvars.example terraform.tfvars
 terraform init
 terraform plan
 terraform apply
 
 cd infra/envs/staging
-cp terraform.tfvars.example terraform.tfvars
 terraform init -reconfigure \
 	-backend-config="bucket=<STATE_BUCKET>" \
 	-backend-config="key=avatares-devops/staging/terraform.tfstate" \
