@@ -237,4 +237,8 @@ Enlaces a evidencias de comandos kubectl en staging:
 - docs/evidencias/k8s/get-ingress-staging.txt
 - docs/evidencias/k8s/get-pvc-staging.txt
 
+### Anexo C. Manual de instalacion y replicacion del entorno
+
+- docs/Manual_de_instlación.pdf
+
 
