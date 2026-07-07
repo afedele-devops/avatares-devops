@@ -239,6 +239,6 @@ Enlaces a evidencias de comandos kubectl en staging:
 
 ### Anexo C. Manual de instalacion y replicacion del entorno
 
-- docs/Manual_de_instlación.pdf
+- docs/Manual_de_instalación.pdf
 
 
